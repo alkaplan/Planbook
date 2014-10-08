@@ -1,4 +1,4 @@
-var express = require("express"),
+/*var express = require("express"),
     app = express(),
     cookie = require('cookie'),
     // nano = require('nano')('http://server:password@localhost:5984'),
@@ -36,7 +36,7 @@ app.get('/settings', function(req, res) {
 });
 
 app.post('/signup', function(req, res) {
-  /* Look to see if user exists */
+  // Look to see if user exists
   _users.get('org.couchdb.user:' + req.body.username, function(err, body) {
     if (!err) { // user is present in the database
       res.send(403, {'message': 'The username you attempted to sign up with already exists.'});
@@ -152,5 +152,18 @@ function signup(req, res) {
 
 var server = app.listen(app.get('port'), function() {
   console.info('Listening on port %d', server.address().port);
-});
+}); */
 
+var express = require('express')
+var app = express();
+
+app.set('port', (process.env.PORT || 5000))
+app.use(express.static(__dirname + '/public'))
+
+app.get('/', function(request, response) {
+  response.send('Hello World!')
+})
+
+app.listen(app.get('port'), function() {
+  console.log("Node app is running at localhost:" + app.get('port'))
+})
