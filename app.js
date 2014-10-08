@@ -9,7 +9,8 @@ app.configure(function() {
   app.engine("html", require("ejs").renderFile);
   app.set('view engine', 'html');
   app.set('views', __dirname + '/views');
-  
+  app.set('port', (process.env.PORT || 5000));
+
   app.use(express.logger('dev'));
   
   app.use(express.cookieParser());
@@ -149,7 +150,7 @@ function signup(req, res) {
   });
 }
 
-var server = app.listen(process.argv[2] || 3000, function() {
+var server = app.listen(app.get('port'), function() {
   console.info('Listening on port %d', server.address().port);
 });
 
