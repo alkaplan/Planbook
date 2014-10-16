@@ -27,6 +27,10 @@ app.get('/', function(req, res) {
   res.redirect("/planner");
 });
 
+app.get('test', function(req, res) {
+  res.send("hello");
+});
+
 app.get('/planner', function(req, res) {
   res.render("index.html");
 });
@@ -153,5 +157,3 @@ function signup(req, res) {
 var server = app.listen(app.get('port'), function() {
   console.info('Listening on port %d', server.address().port);
 });
-
-
