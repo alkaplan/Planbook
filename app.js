@@ -1,8 +1,11 @@
+var dbURL = require('donotpush').dbURL;
+console.log(dbURL);
+
 var express = require("express"),
     app = express(),
     cookie = require('cookie'),
     // nano = require('nano')('http://server:password@localhost:5984'),
-    nano = require('nano')('http://server:password@davish.iriscouch.com'),
+    nano = require('nano')(dbURL),
     _users = nano.use('_users');
 
 app.configure(function() {  
