@@ -1,4 +1,5 @@
-var dbURL = require('donotpush').dbURL;
+var loginData = require('donotpush');
+var dbURL = 'http://' + loginData.dbUser + ':' + loginData.dbPswd + '@' + loginData.dbURL;
 console.log(dbURL);
 
 var express = require("express"),
