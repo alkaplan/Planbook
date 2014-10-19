@@ -9,7 +9,7 @@ app.configure(function() {
   app.engine("html", require("ejs").renderFile);
   app.set('view engine', 'html');
   app.set('views', __dirname + '/views');
-  app.set('port', (process.env.PORT || 5000));
+  app.set('port', (process.env.PORT || process.argv[2] || 5000));
 
   app.use(express.logger('dev'));
   
