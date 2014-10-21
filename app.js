@@ -1,6 +1,5 @@
 var loginData = require('donotpush');
 var dbURL = 'http://' + loginData.dbUser + ':' + loginData.dbPswd + '@' + loginData.dbURL + ':' + loginData.dbPort;
-console.log(dbURL);
 
 var express = require("express"),
     app = express(),
@@ -89,7 +88,6 @@ function login(req, res) {
 
       res.type('text/json');
       res.cookie("AuthSession", cookie.parse(headers['set-cookie'][0]).AuthSession);
-      console.log(loginData.dbURL);
       res.send({"user": req.body.username, "dbURL": loginData.dbURL});
     }
     else // username/password combo got rejected
