@@ -6,15 +6,16 @@ var express = require("express"),
     cookie = require('cookie'),
     // nano = require('nano')('http://server:password@localhost:5984'),
     nano = require('nano')(dbURL),
+    fs = require('fs');
     _users = nano.use('_users');
 
 
 app.configure("development", function() {
-  app.use(express.logger('dev'));
+  app.use(express.logger({'format': 'dev'));
 });
 
 app.configure("production", function() {
-  app.use(express.logger());
+  app.use(express.logger({'stream': fs.createWriteStream('log.txt')}));
 });
 
 app.configure(function() {  
