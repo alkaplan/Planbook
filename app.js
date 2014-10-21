@@ -11,7 +11,7 @@ var express = require("express"),
 
 
 app.configure("development", function() {
-  app.use(express.logger({'format': 'dev'));
+  app.use(express.logger({'format': 'dev'}));
 });
 
 app.configure("production", function() {
