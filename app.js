@@ -35,19 +35,19 @@ app.configure(function() {
 });
 
 app.get('/', function(req, res) {
-  res.redirect("/planner");
-});
-
-app.get('/test', function(req, res) {
-  res.send("hello");
-});
-
-app.get('/planner', function(req, res) {
   res.render("index.html");
 });
 
 app.get('/settings', function(req, res) {
-    res.redirect('/planner');
+    res.redirect('/');
+});
+
+app.get('/planner', function(req, res) {
+    res.redirect('/');
+});
+
+app.get('/test', function(req, res) {
+  res.send("hello");
 });
 
 app.post('/signup', function(req, res) {
@@ -71,7 +71,7 @@ app.get('/logout', function(req, res) {
   req.session.username = undefined;
   req.session.password = undefined;
   res.clearCookie("AuthSession");
-  res.redirect('/planner');
+  res.redirect('/');
 });
 
 app.get('/session', function(req, res) {
